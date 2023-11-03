@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample
+  namespace: my_namespace
+spec:
+  template:
+    spec:
+      serviceAccountName: sample
+      containers:
+      - name: sample
+        env:
+        - name: POSTGRES_CONNECTION_STRING
+          value: "host=127.0.0.1 dbname=sample user=sample@trivy sample.iam"

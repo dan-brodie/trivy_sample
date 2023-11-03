@@ -1,0 +1,11 @@
+commonLabels:
+  env: local
+  
+bases:
+ - ../../baseresources:
+ - postgres-statefulset.yaml
+ - postgres-service.yaml
+
+
+patchesStrategicMerge:
+ - env-patch.yaml
