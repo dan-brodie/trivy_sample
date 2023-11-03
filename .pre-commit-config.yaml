@@ -1,0 +1,36 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-docstring-first
+      - id: check-merge-conflict
+      - id: mixed-line-ending
+        args:
+          - --fix=lf
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.2.0
+    hooks:
+      - id: detect-secrets
+        args:
+          - --baseline
+          - .secrets.baseline
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.31.1
+    hooks:
+      - id: markdownlint
+  - repo: https://github.com/mxab/pre-commit-trivy.git
+    rev: v0.5.1
+    hooks:
+      -   id: trivyfs-docker
+          args:
+            - --skip-dirs
+            - ./tests
+            - sample
+      -   id: trivyconfig-docker
+          args:
+            - --skip-dirs
+            - ./tests
+            - sample

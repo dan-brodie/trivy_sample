@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: postgres
+  name: postgres
+  namespace: my_namespace
+spec:
+  serviceName: postgres
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres 
+  template:
+    metadata:
+      labels:
+        app: postgres 
+    spec:
+      containers:
+      - image: postgres:14
+        name: postgres
+        securityContext:
+          seccompProfile:
+            type: RuntimeDefault
+          allowPrivilegeEscalation: false
+          runAsNonRoot: true
+        env:
+        - name: POSTGRES_DB
+          value: db
+        - name: POSTGRES_USER
+          value: postgres
+        - name: POSTGRES_PASSWORD
+          value: postgres
+        volumeMounts:
+        - mountPath: "/var/lib/postgresql/data"
+          name: "postgres-data"
+        ports:
+        - containerPort: 5432
+        resources: {}
+  volumeClaimTemplates:
+    - metadata:
+        name: postgres-data
+      spec:
+        accessModes: 
+         - ReadWriteOnce
+        resources:
+          requests:
+            storage: 5Gi

@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample
+  namespace: my_namespace
+spec:
+  template:
+    spec:
+      containers:
+      - name: sample
+        env:
+        - name: POSTGRES_CONNECTION_STRING
+          value: "host=postgres.default dbname=db user=postgres password=postgres"

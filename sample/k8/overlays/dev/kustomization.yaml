@@ -1,0 +1,10 @@
+commonLabels:
+  env: dev
+  
+bases:
+ - ../../base
+
+resources:
+ - service-account.yamlpatchesStrategicMerge:
+ - env-patch.yaml
+ - sql-proxy-patch.yaml
