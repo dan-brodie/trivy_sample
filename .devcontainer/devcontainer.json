@@ -1,18 +1,13 @@
 {
-	"name": "cookiecutter",
-	"image": "eu.gcr.io/cts-public-images-1/cts-k8s:latest",
-
-	// Configure tool-specific properties.
-	"customizations": {
-		// Configure properties specific to VS Code.
-		"vscode": {
-			// Add the IDs of extensions you want installed when the container is created.
-			"extensions": [
-				"ms-azuretools.vscode-docker",
-				"ms-kubernetes-tools.vscode-kubernetes-tools"
-			]
-		}
-	},
-	"remoteUser": "vscode",
-	"postCreateCommand": "pre-commit install && wget https://github.com/aquasecurity/trivy/releases/download/v0.43.1/trivy_0.43.1_Linux-ARM64.deb && sudo dpkg -i trivy_0.43.1_Linux-ARM64.deb && rm trivy_0.43.1_Linux-ARM64.deb"
+	"name": "pre-commit",
+	"image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye",
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
+		"ghcr.io/devcontainers-contrib/features/poetry:2": {},
+		"ghcr.io/devcontainers-contrib/features/pre-commit:2": {},
+		"ghcr.io/dhoeric/features/google-cloud-cli:1": {},
+		"ghcr.io/dhoeric/features/trivy:1": {},
+		"ghcr.io/rio/features/skaffold:2": {}
+	}
 }

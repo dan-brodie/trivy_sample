@@ -10,11 +10,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: postgres 
+      app: postgres
   template:
     metadata:
       labels:
-        app: postgres 
+        app: postgres
     spec:
       containers:
       - image: postgres:14
@@ -41,7 +41,7 @@ spec:
     - metadata:
         name: postgres-data
       spec:
-        accessModes: 
+        accessModes:
          - ReadWriteOnce
         resources:
           requests:
