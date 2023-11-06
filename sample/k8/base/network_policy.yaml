@@ -7,7 +7,7 @@ spec:
   policyTypes:
     - Ingress
   ingress:
-    - to: 
+    - to:
         - namespaceSelector: my_namespace
     - from:
         - ipBlock:

@@ -1,6 +1,6 @@
 commonLabels:
   env: local
-  
+
 bases:
  - ../../baseresources:
  - postgres-statefulset.yaml
