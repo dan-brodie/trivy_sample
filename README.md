@@ -1,6 +1,6 @@
 # Precommit usage sample
 
-Install devcontainer for all dependencies.
+1) Install devcontainer for all dependencies.
 
 VScode - ms-vscode-remote.remote-containers
 Generic - https://containers.dev
